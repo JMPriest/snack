@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://bogbhjx7drlrt"]
+
+[ext_resource type="FontFile" uid="uid://r5ttqaxnuvgk" path="res://assets/MaldiniBold.ttf" id="1_6ebp1"]
+[ext_resource type="Script" uid="uid://d4j578fo1d4rg" path="res://scenes/game_over_menu.gd" id="1_cwb3k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwb3k"]
+bg_color = Color(0.867707, 0.48333, 0.284152, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccgoi"]
+bg_color = Color(0.282849, 0.555819, 0.644272, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81acl"]
+bg_color = Color(0.251671, 0.461572, 0.191479, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 4
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_cwb3k")
+
+[node name="GameOverPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -100.0
+offset_right = 250.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cwb3k")
+
+[node name="ResultLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -68.0
+offset_right = 115.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_6ebp1")
+theme_override_font_sizes/font_size = 40
+text = "GAME OVER!"
+horizontal_alignment = 1
+
+[node name="ResultButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_6ebp1")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_ccgoi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_81acl")
+text = "PLAY AGAIN"
+
+[connection signal="pressed" from="ResultButton" to="." method="_on_result_button_pressed"]
